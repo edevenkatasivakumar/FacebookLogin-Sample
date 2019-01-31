@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  FacebookLogin
 //
-//  Created by TechMahindra on 31/01/19.
+//  Created by Sivakumar on 31/01/19.
 //  Copyright © 2019 Sivakumar. All rights reserved.
 //
 

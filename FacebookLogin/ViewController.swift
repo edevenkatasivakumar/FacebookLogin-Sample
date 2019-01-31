@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  FacebookLogin
 //
-//  Created by TechMahindra on 31/01/19.
+//  Created by Sivakumar on 31/01/19.
 //  Copyright © 2019 Sivakumar. All rights reserved.
 //
 
@@ -28,9 +28,20 @@ class ViewController: UIViewController {
                 let strToken : String = (result?.token.tokenString)!
                 print("Easy Solutions Web's FB Token = \(strToken)")
                 DispatchQueue.main.async {
-                   // self.btnFbLogin.titleLabel?.text = "Logout User"
+                    self.getFBProfile();
                 }
             }
+        }
+    }
+    
+    func getFBProfile(){
+        if((FBSDKAccessToken.current()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    //everything works print the user data
+                    print(result ?? "not loaded");
+                }
+            })
         }
     }
 
